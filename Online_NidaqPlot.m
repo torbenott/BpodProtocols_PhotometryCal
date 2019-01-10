@@ -23,7 +23,7 @@ hold on
 %     date, BpodSystem.GUIData.SubjectName, ...
 %     BpodSystem.GUIData.ProtocolName, TaskParameters.Names.Phase{TaskParameters.GUI.Phase});
 ProtoLegend=uicontrol('style','text');
-set(ProtoLegend,'String',ProtoSummary); 
+% set(ProtoLegend,'String',ProtoSummary); 
 set(ProtoLegend,'Position',[10,1,400,20]);
 
 %% Current Nidaq plot
@@ -38,12 +38,12 @@ lastplot470=plot([-5 5],[0 0],'-g','LineWidth',MeanThickness);
 hold off
 
 %% Plot previous recordings
-subplotTitles=TaskParameters.TrialsNames;
-for i=1:TaskParameters.TrialsMatrix(end,1)
-    subplotTitles{i}=sprintf('%s - cue # %.0d',subplotTitles{i},TaskParameters.TrialsMatrix(i,3));
+subplotTitles={'all'};
+for i=1:1
+    subplotTitles{i}=sprintf('%s',subplotTitles{i});
 end
 %Subplot
-for i=1:6
+for i=1:1
     photosubplot(i)=subplot(4,2,i+2);
     hold on
     title(subplotTitles(i));
@@ -56,11 +56,11 @@ for i=1:6
 end
 
 set(photosubplot(1),'XLabel',[]);
-set(photosubplot(2),'XLabel',[],'YLabel',[]);
-set(photosubplot(3),'XLabel',[]);
-set(photosubplot(4),'XLabel',[],'YLabel',[])
+% set(photosubplot(2),'XLabel',[],'YLabel',[]);
+% set(photosubplot(3),'XLabel',[]);
+% set(photosubplot(4),'XLabel',[],'YLabel',[])
 %set(photosubplot(5),'XLabel',labelx,'YLabel',labely);
-set(photosubplot(6),'YLabel',[]);
+% set(photosubplot(6),'YLabel',[]);
 
 %Save the figure properties
 figData.fig=figPlot;
@@ -91,7 +91,7 @@ uistack(figData.meanplot(currentTrialType), 'top');
 hold off
          end
 %% Update GUI plot parameters
- for i=1:6
+ for i=1:1
      set(figData.photosubplot(i),'XLim',[minx maxx],'XTick',xtickvalues,'YLim',[miny maxy])
 end
 end

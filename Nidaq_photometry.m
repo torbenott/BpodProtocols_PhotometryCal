@@ -1,11 +1,11 @@
-function [photometryData,photometry2Data]=Nidaq_photometry(action,Param)
+function [photometryData,photometry2Data]=Nidaq_photometry(action)
 global nidaq TaskParameters
 
 switch action
     case 'ini'
 %% NIDAQ Initialization
 % Define parameters for analog inputs and outputs.
-nidaq.device            = Param.nidaqDev;
+nidaq.device            = TaskParameters.GUI.nidaqDev;
 nidaq.duration      	= TaskParameters.GUI.NidaqDuration;
 nidaq.sample_rate     	= TaskParameters.GUI.NidaqSamplingRate;
 nidaq.ai_channels       = {'ai0','ai1'};  
